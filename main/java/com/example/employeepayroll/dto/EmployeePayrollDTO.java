@@ -4,8 +4,10 @@ import lombok.Data;
 import org.intellij.lang.annotations.Pattern;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 
-    @Data
+
+@Data
     public class EmployeePayrollDTO {
 
         @NotEmpty
@@ -25,6 +27,16 @@ import org.jetbrains.annotations.NotNull;
         @NotNull
         @Min(value = 200000, message = "Salary Should be more than 2 LPA")
         private double salary;
+
+        @NotNull
+        private List<String> department;
+
+        //	@JsonFormat(pattern = "yyyy-mm-dd")
+        @NotNull(message = "Date cannot be Empty")
+//	@PastOrPresent(message = "Date cannot be of future")
+        private String start;
+
+    }
 
 
     }
